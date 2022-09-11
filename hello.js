@@ -1,6 +1,5 @@
 var colorChosen = null;
-let pos = 0;
-let interval = null;
+var interval = null;
 let image = null;
 
 function changeBackgroundColor()
@@ -22,29 +21,31 @@ function setColor(colorString)
 
 function xCheck()
 {
-   alert(image.style.left);
-}
-
-function setAnime()
-{
-   clearInterval(interval);
-   interval = setInterval(moveAnime(), 10)
+   alert(image.style.top);
 }
 
 function setImage()
 {
    image = document.getElementById("image");
+   image.style.position = "relative";
+}
+
+function setAnime()
+{
+   var pos = 0;
+   clearInterval(interval);
+   interval = setInterval(moveAnime(), 5);
 }
 
 function moveAnime()
-{
-   if(pos == 5000)
    {
-      clearInterval(interval);
+      if(pos == 5000)
+      {
+         clearInterval(interval);
+      }
+      else
+      {
+         pos++;
+         image.style.top = pos + 'px';
+      }
    }
-   else
-   {
-      pos++;
-      image.style.top = pos + 'px';
-   }
-}
