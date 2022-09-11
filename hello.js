@@ -1,4 +1,5 @@
 var colorChosen = null;
+var pos = 0;
 var interval = null;
 let image = null;
 
@@ -32,8 +33,6 @@ function setImage()
 
 function setAnime()
 {
-   var pos = 0;
-   clearInterval(interval);
    interval = setInterval(moveAnime(), 5);
 }
 
