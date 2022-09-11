@@ -22,7 +22,7 @@ function setColor(colorString)
 
 function xCheck()
 {
-   alert(image.style.top);
+   alert(image.offsetTop);
 }
 
 function setImage()
