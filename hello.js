@@ -38,7 +38,7 @@ function setAnime()
 
 function moveAnime()
 {
-   if(pos == 5000)
+   if(pos == 350)
    {
       clearInterval(interval);
    }
