@@ -33,18 +33,18 @@ function setImage()
 
 function setAnime()
 {
-   interval = setInterval(moveAnime(), 5);
+   setInterval(moveAnime, 5);
 }
 
 function moveAnime()
+{
+   if(pos == 5000)
    {
-      if(pos == 5000)
-      {
-         clearInterval(interval);
-      }
-      else
-      {
-         pos++;
-         image.style.top = pos + 'px';
-      }
+      clearInterval(interval);
    }
+   else
+   {
+      pos++;
+      image.style.top = pos + 'px';
+   }
+}
