@@ -13,8 +13,8 @@
           function(evt)
           {
             evt = evt || window.event;
-            alert(evt.key);
-          } 
+            setAnime(evt);
+          }
     </script>
     <form>
         <label for="nameText">Name: </label>
@@ -23,7 +23,7 @@
         <input type="button" onclick="changeBackgroundColor();" name="changeColorButton" value="Change Color"/><br><br>
         <input type="button" onclick="xCheck();" value="Check X" name="getXButton"/><br><br>
     </form>
-    <img id="image" src="C:/Users/wissm/Downloads/IMG_20220531_101140407.jpg" width="100" height="100" onclick="setAnime()"></image>
+    <img id="image" src="C:/Users/wissm/Downloads/IMG_20220531_101140407.jpg" width="100" height="100"></image>
 </body>
 
 </html>

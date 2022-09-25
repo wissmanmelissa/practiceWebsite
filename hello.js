@@ -6,6 +6,8 @@ var pos = 0;
 var interval = null;
 //image for animation
 let image = null;
+//set to keyboard key pressed
+let key = null;
 
 /*sets color of screen background based on user's
 chosen color (defualt is white)*/
@@ -39,26 +41,43 @@ function setImage()
 {
    image = document.getElementById("image");
    image.style.position = "relative";
+   pos = image.offsetTop;
 }
 
 /*sets movement of image to occur
 every 5 millisecs*/
-function setAnime()
+function setAnime(event)
 {
-   setInterval(moveAnime, 5);
+   key = event.key;
+   clearInterval(interval);
+   interval = setInterval(moveAnime, 5);
 }
 
 /*moves image 1px down until image
 top at 350px*/
 function moveAnime()
 {
-   if(pos == 350)
+   /*if(key == "ArrowUp")
    {
-      clearInterval(interval);
-   }
-   else
+      if(pos > 0)
+      {
+         pos = image.style.top - 1;
+         console.log(pos);
+         image.style.top = pos;
+      }
+   }*/
+   if(key == "ArrowDown")
    {
-      pos++;
+      //console.log(pos);
+      pos = pos + 1;
       image.style.top = pos + 'px';
    }
+   /*if(key == "ArrowLeft")
+   {
+      image.style.left = image.offsetTop - 1;
+   }
+   if(key == "ArrowRight")
+   {
+      image.style.left = image.offsetTop + 1;
+   }*/
 }
