@@ -41,7 +41,6 @@ function setImage()
 {
    image = document.getElementById("image");
    image.style.position = "relative";
-   pos = image.offsetTop;
 }
 
 /*sets movement of image to occur
@@ -57,27 +56,31 @@ function setAnime(event)
 top at 350px*/
 function moveAnime()
 {
-   /*if(key == "ArrowUp")
+   if(pos < 350)
    {
-      if(pos > 0)
+   
+      if(key == "ArrowDown")
+      {
+         pos = image.offsetTop + 1;
+         image.style.top = pos + 'px';
+      }
+      else if(key == "ArrowRight")
+      {
+         pos  = image.style.left + 1;
+         image.style.left = pos + 'px';
+      }
+   }
+   else if(pos > 200)
+   {
+      if(key == "ArrowUp")
       {
          pos = image.style.top - 1;
-         console.log(pos);
-         image.style.top = pos;
+         image.style.top = pos + 'px';
       }
-   }*/
-   if(key == "ArrowDown")
-   {
-      //console.log(pos);
-      pos = pos + 1;
-      image.style.top = pos + 'px';
+      else if(key == "ArrowLeft")
+      {
+         pos  = image.style.left - 1;
+         image.style.left = pos + 'px';
+      }
    }
-   /*if(key == "ArrowLeft")
-   {
-      image.style.left = image.offsetTop - 1;
-   }
-   if(key == "ArrowRight")
-   {
-      image.style.left = image.offsetTop + 1;
-   }*/
 }
