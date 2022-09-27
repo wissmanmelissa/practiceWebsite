@@ -1,7 +1,9 @@
 //color chosen by user
 var colorChosen = null;
-//image position
-var pos = 0;
+//image top position
+var topPos = 0;
+//image left position
+var leftPos = 0;
 //interval for animation
 var interval = null;
 //image for animation
@@ -41,6 +43,8 @@ function setImage()
 {
    image = document.getElementById("image");
    image.style.position = "relative";
+   leftPos = image.style.left;
+   topPos = image.style.top;
 }
 
 /*sets movement of image to occur
@@ -49,38 +53,47 @@ function setAnime(event)
 {
    key = event.key;
    clearInterval(interval);
-   interval = setInterval(moveAnime, 5);
+   interval = setInterval(moveAnime, 10);
 }
 
 /*moves image 1px down until image
 top at 350px*/
 function moveAnime()
 {
-   if(pos < 350)
+   if(key == "ArrowDown")
    {
-   
-      if(key == "ArrowDown")
+      if(topPos < 380)
       {
-         pos = image.offsetTop + 1;
-         image.style.top = pos + 'px';
-      }
-      else if(key == "ArrowRight")
-      {
-         pos  = image.style.left + 1;
-         image.style.left = pos + 'px';
+         topPos = topPos + 1;
+         image.style.top = topPos + 'px';
       }
    }
-   else if(pos > 200)
+   else if(key == "ArrowRight")
    {
-      if(key == "ArrowUp")
+      if(leftPos < 380)
       {
-         pos = image.style.top - 1;
-         image.style.top = pos + 'px';
+         leftPos  = leftPos + 1;
+         image.style.left = leftPos + 'px';
+         //console.log("right");
       }
-      else if(key == "ArrowLeft")
+   }
+   else if(key == "ArrowUp")
+   {
+      if(topPos > 200)
       {
-         pos  = image.style.left - 1;
-         image.style.left = pos + 'px';
+         console.log(topPos + "before");
+         topPos = topPos - 1;
+         console.log(topPos + "after");
+         image.style.top = topPos + 'px';
+      }
+   }
+   else if(key == "ArrowLeft")
+   {
+      if(leftPos > 200)
+      {
+         leftPos  = leftPos - 1;
+         image.style.left = leftPos + 'px';
+         //console.log("left");
       }
    }
 }
